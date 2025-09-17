@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regulación y Cumplimiento - BARF Ecuador</title>
+    
+    <!-- Tailwind CSS y Google Fonts -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Estilos personalizados -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F8F9FA;
+            color: #212529;
+        }
+        .nav-link {
+            transition: color 0.3s ease-in-out;
+        }
+        .nav-link:hover {
+            color: #A3B18A;
+        }
+        .accordion-header {
+            transition: background-color 0.3s ease;
+        }
+        .accordion-header:hover {
+            background-color: #E9ECEF;
+        }
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-in-out;
+        }
+        .accordion-icon {
+            transition: transform 0.4s ease-in-out;
+        }
+        .accordion-item.active .accordion-icon {
+            transform: rotate(135deg);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Contenedor principal de la aplicación -->
+    <div id="app-container">
+
+        <!-- Header y Navegación (Consistente) -->
+        <header class="bg-white/80 backdrop-blur-lg sticky top-0 z-50 shadow-sm">
+            <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+                <div class="font-extrabold text-2xl text-[#3A5A40]">
+                    <a href="index.html">BARF Ecuador</a>
+                </div>
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="nav-link">Inicio</a>
+                    <a href="producto.html" class="nav-link">El Producto</a>
+                    <a href="modelo-negocio.html" class="nav-link">Modelo de Negocio</a>
+                    <a href="regulacion.html" class="nav-link font-semibold text-[#588157]">Regulación</a>
+                    <a href="calculadora.html" class="nav-link">Calculadora</a>
+                    <a href="contacto.html" class="bg-[#588157] text-white px-4 py-2 rounded-md hover:bg-[#3A5A40] transition-colors">Contacto</a>
+                </nav>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-[#3A5A40] focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                    </button>
+                </div>
+            </div>
+            <!-- Menú Móvil -->
+            <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg">
+                <a href="index.html" class="block py-2 px-4 text-sm hover:bg-gray-100">Inicio</a>
+                <a href="producto.html" class="block py-2 px-4 text-sm hover:bg-gray-100">El Producto</a>
+                <a href="modelo-negocio.html" class="block py-2 px-4 text-sm hover:bg-gray-100">Modelo de Negocio</a>
+                <a href="regulacion.html" class="block py-2 px-4 text-sm hover:bg-gray-100 font-semibold text-[#588157]">Regulación</a>
+                <a href="calculadora.html" class="block py-2 px-4 text-sm hover:bg-gray-100">Calculadora</a>
+                <a href="contacto.html" class="block py-2 px-4 text-sm hover:bg-gray-100">Contacto</a>
+            </div>
+        </header>
+
+        <!-- Contenido Principal -->
+        <main>
+            
+            <!-- Sección de Introducción a Regulación -->
+            <section class="py-20 bg-white">
+                <div class="container mx-auto px-6 text-center">
+                    <h1 class="text-3xl lg:text-5xl font-extrabold text-[#3A5A40] mb-4">Cumplimiento y Seguridad: Nuestra Ventaja Competitiva</h1>
+                    <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                        Dominamos el marco regulatorio ecuatoriano para mitigar riesgos, garantizar la máxima inocuidad alimentaria y construir una marca de confianza inquebrantable para clientes e inversores.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Sección Proceso de Registro y Permisos -->
+            <section class="py-20 bg-gray-50">
+                <div class="container mx-auto px-6">
+                    <div class="text-center mb-16">
+                        <h2 class="text-3xl lg:text-4xl font-bold text-[#3A5A40]">Navegando el Marco Regulatorio de AGROCALIDAD</h2>
+                        <p class="mt-2 text-gray-600 max-w-2xl mx-auto">Un plan de acción claro y detallado para asegurar una operación 100% legal y certificada desde el primer día.</p>
+                    </div>
+                    <div class="max-w-3xl mx-auto">
+                        <div class="space-y-4" id="accordion-container">
+                            <!-- Item 1 -->
+                            <div class="accordion-item bg-white border border-gray-200 rounded-lg shadow-sm">
+                                <button class="accordion-header w-full flex justify-between items-center text-left p-6">
+                                    <span class="text-xl font-semibold text-[#3A5A40]">Paso 1: Registro del Establecimiento</span>
+                                    <span class="accordion-icon text-2xl font-light text-[#588157]">+</span>
+                                </button>
+                                <div class="accordion-content">
+                                    <div class="p-6 border-t border-gray-200 text-gray-700">
+                                        <p>El primer hito es el registro de nuestra planta de producción ante la Agencia de Regulación y Control Fito y Zoosanitario (AGROCALIDAD). Este proceso implica la presentación de planos detallados, un manual de Buenas Prácticas de Manufactura (BPM) y una memoria técnica del flujo de producción. Ya hemos preparado la documentación preliminar para agilizar este paso crucial.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Item 2 -->
+                            <div class="accordion-item bg-white border border-gray-200 rounded-lg shadow-sm">
+                                <button class="accordion-header w-full flex justify-between items-center text-left p-6">
+                                    <span class="text-xl font-semibold text-[#3A5A40]">Paso 2: Registro Sanitario por Producto</span>
+                                    <span class="accordion-icon text-2xl font-light text-[#588157]">+</span>
+                                </button>
+                                <div class="accordion-content">
+                                    <div class="p-6 border-t border-gray-200 text-gray-700">
+                                        <p>Cada una de nuestras fórmulas (Pollo, Res, Cordero) se registrará individualmente. Este proceso requiere la presentación de un análisis bromatológico emitido por un laboratorio acreditado, que certifica el "Análisis Garantizado" de la etiqueta. Además, se somete a aprobación el diseño final de la etiqueta y la ficha técnica del producto. Este registro es la garantía de transparencia y calidad para el consumidor.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Item 3 -->
+                            <div class="accordion-item bg-white border border-gray-200 rounded-lg shadow-sm">
+                                <button class="accordion-header w-full flex justify-between items-center text-left p-6">
+                                    <span class="text-xl font-semibold text-[#3A5A40]">Paso 3: Permisos Complementarios</span>
+                                    <span class="accordion-icon text-2xl font-light text-[#588157]">+</span>
+                                </button>
+                                <div class="accordion-content">
+                                    <div class="p-6 border-t border-gray-200 text-gray-700">
+                                        <p>Paralelamente a la regulación de AGROCALIDAD, gestionaremos todos los permisos locales necesarios para la operación. En el Distrito Metropolitano de Quito, esto se consolida a través de la Licencia Única de Actividades Económicas (LUAE), que incluye la inspección y aprobación del Cuerpo de Bomberos, la conformidad con el uso de suelo y otros requisitos municipales. Este enfoque integral asegura el cumplimiento en todos los frentes.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Sección HACCP y Seguridad Alimentaria -->
+            <section class="py-20 bg-white">
+                <div class="container mx-auto px-6">
+                     <div class="text-center mb-16">
+                        <h2 class="text-3xl lg:text-4xl font-bold text-[#3A5A40]">Compromiso con la Inocuidad: Sistema HACCP</h2>
+                        <p class="mt-2 text-gray-600 max-w-2xl mx-auto">Implementamos el Análisis de Peligros y Puntos Críticos de Control (HACCP) para garantizar la seguridad microbiológica del producto final.</p>
+                    </div>
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                        <div class="bg-gray-50 p-8 rounded-lg">
+                           <h3 class="text-2xl font-bold mb-4">Nuestros Puntos Críticos de Control (PCC)</h3>
+                           <div class="space-y-4">
+                               <div class="flex items-start">
+                                   <div class="flex-shrink-0 bg-[#588157] text-white rounded-full w-8 h-8 flex items-center justify-center font-bold">1</div>
+                                   <div class="ml-4">
+                                       <h4 class="font-semibold">Recepción de Materia Prima</h4>
+                                       <p class="text-gray-600 text-sm">Control estricto de temperatura (debajo de 4°C) y verificación de certificados sanitarios de proveedores para prevenir la contaminación en origen.</p>
+                                   </div>
+                               </div>
+                               <div class="flex items-start">
+                                   <div class="flex-shrink-0 bg-[#588157] text-white rounded-full w-8 h-8 flex items-center justify-center font-bold">2</div>
+                                   <div class="ml-4">
+                                       <h4 class="font-semibold">Proceso de Congelación</h4>
+                                       <p class="text-gray-600 text-sm">Congelación rápida y mantenimiento a -18°C. Este paso es crucial para inhibir el crecimiento de patógenos como Salmonella y E. coli.</p>
+                                   </div>
+                               </div>
+                           </div>
+                        </div>
+                        <div>
+                             <h3 class="text-2xl font-bold mb-4">Etiquetado Conforme a la Norma</h3>
+                             <p class="text-gray-600 mb-6">Cada empaque contendrá información clara, precisa y completa, cumpliendo con todos los requisitos de AGROCALIDAD para la máxima transparencia.</p>
+                             <div class="bg-white border-2 border-dashed border-gray-300 p-6 rounded-lg">
+                                <h4 class="text-center font-bold text-xl mb-4">Fórmula Pollo - 500g</h4>
+                                <div class="text-xs space-y-2 text-gray-700">
+                                    <p><strong>Ingredientes:</strong> Hueso carnoso de pollo, carne de pollo, hígado de pollo, corazón de pollo, zanahoria, brócoli...</p>
+                                    <p class="font-bold">Análisis Garantizado:</p>
+                                    <ul class="list-disc list-inside ml-4">
+                                        <li>Proteína Cruda (min): 15.0%</li>
+                                        <li>Grasa Cruda (min): 10.0%</li>
+                                        <li>Fibra Cruda (max): 2.0%</li>
+                                        <li>Humedad (max): 70.0%</li>
+                                    </ul>
+                                    <p><strong>Registro AGROCALIDAD N°:</strong> PENDIENTE</p>
+                                    <p><strong>Lote:</strong> 251001-A | <strong>Caducidad:</strong> 25/04/2026</p>
+                                </div>
+                             </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer (Consistente) -->
+        <footer class="bg-[#3A5A40] text-white">
+            <div class="container mx-auto px-6 py-8 text-center">
+                <p>&copy; 2025 BARF Ecuador. Todos los derechos reservados.</p>
+                <p class="text-sm text-gray-300 mt-2">Un Prospecto de Inversión</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        // Menú móvil
+        document.getElementById('mobile-menu-button').addEventListener('click', () => {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        // Lógica del Acordeón
+        const accordionItems = document.querySelectorAll('.accordion-item');
+        accordionItems.forEach(item => {
+            const header = item.querySelector('.accordion-header');
+            const content = item.querySelector('.accordion-content');
+            header.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+
+                // Cerrar todos los demás
+                accordionItems.forEach(i => {
+                    i.classList.remove('active');
+                    i.querySelector('.accordion-content').style.maxHeight = null;
+                });
+                
+                // Abrir o cerrar el actual
+                if (!isActive) {
+                    item.classList.add('active');
+                    content.style.maxHeight = content.scrollHeight + 'px';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
