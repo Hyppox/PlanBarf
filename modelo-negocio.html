@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modelo de Negocio - BARF Ecuador</title>
+    
+    <!-- Tailwind CSS, Google Fonts y Chart.js -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Estilos personalizados -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F8F9FA;
+            color: #212529;
+        }
+        .nav-link {
+            transition: color 0.3s ease-in-out;
+        }
+        .nav-link:hover {
+            color: #A3B18A;
+        }
+        .flow-step {
+            transition: all 0.3s ease-in-out;
+            border-bottom-width: 4px;
+            border-color: transparent;
+        }
+        .flow-step:hover {
+            transform: translateY(-5px);
+            border-color: #588157;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Contenedor principal de la aplicación -->
+    <div id="app-container">
+
+        <!-- Header y Navegación (Consistente) -->
+        <header class="bg-white/80 backdrop-blur-lg sticky top-0 z-50 shadow-sm">
+            <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+                <div class="font-extrabold text-2xl text-[#3A5A40]">
+                    <a href="index.html">BARF Ecuador</a>
+                </div>
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="nav-link">Inicio</a>
+                    <a href="producto.html" class="nav-link">El Producto</a>
+                    <a href="modelo-negocio.html" class="nav-link font-semibold text-[#588157]">Modelo de Negocio</a>
+                    <a href="regulacion.html" class="nav-link">Regulación</a>
+                    <a href="calculadora.html" class="nav-link">Calculadora</a>
+                    <a href="contacto.html" class="bg-[#588157] text-white px-4 py-2 rounded-md hover:bg-[#3A5A40] transition-colors">Contacto</a>
+                </nav>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-[#3A5A40] focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                    </button>
+                </div>
+            </div>
+            <!-- Menú Móvil -->
+            <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg">
+                <a href="index.html" class="block py-2 px-4 text-sm hover:bg-gray-100">Inicio</a>
+                <a href="producto.html" class="block py-2 px-4 text-sm hover:bg-gray-100">El Producto</a>
+                <a href="modelo-negocio.html" class="block py-2 px-4 text-sm hover:bg-gray-100 font-semibold text-[#588157]">Modelo de Negocio</a>
+                <a href="regulacion.html" class="block py-2 px-4 text-sm hover:bg-gray-100">Regulación</a>
+                <a href="calculadora.html" class="block py-2 px-4 text-sm hover:bg-gray-100">Calculadora</a>
+                <a href="contacto.html" class="block py-2 px-4 text-sm hover:bg-gray-100">Contacto</a>
+            </div>
+        </header>
+
+        <!-- Contenido Principal -->
+        <main>
+            
+            <!-- Sección de Introducción al Modelo -->
+            <section class="py-20 bg-white">
+                <div class="container mx-auto px-6 text-center">
+                    <h1 class="text-3xl lg:text-5xl font-extrabold text-[#3A5A40] mb-4">La Maquinaria del Emprendimiento</h1>
+                    <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                        Un producto superior requiere un modelo de negocio robusto. Presentamos un sistema operativo diseñado para la eficiencia, la escalabilidad y una rentabilidad sostenible en el mercado ecuatoriano.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Sección Flujo de Operaciones -->
+            <section class="py-20 bg-gray-50">
+                <div class="container mx-auto px-6">
+                    <div class="text-center mb-16">
+                        <h2 class="text-3xl lg:text-4xl font-bold text-[#3A5A40]">Flujo Operativo: De la Granja al Hogar</h2>
+                        <p class="mt-2 text-gray-600">Un proceso optimizado que garantiza la máxima calidad y seguridad en cada etapa.</p>
+                    </div>
+                    <div class="flex flex-col md:flex-row justify-between items-center space-y-8 md:space-y-0 md:space-x-4">
+                        <!-- Step 1 -->
+                        <div class="flow-step text-center w-full md:w-1/5 bg-white p-6 rounded-lg shadow-md">
+                            <h3 class="font-bold text-lg text-[#588157]">1. Proveedores</h3>
+                            <p class="text-sm text-gray-600 mt-2">Selección rigurosa de frigoríficos y productores locales con certificación sanitaria.</p>
+                        </div>
+                        <div class="hidden md:block text-2xl font-bold text-gray-300">&rarr;</div>
+                        <!-- Step 2 -->
+                        <div class="flow-step text-center w-full md:w-1/5 bg-white p-6 rounded-lg shadow-md">
+                            <h3 class="font-bold text-lg text-[#588157]">2. Producción</h3>
+                            <p class="text-sm text-gray-600 mt-2">Molienda, mezcla y formulación precisa en un ambiente controlado bajo normas HACCP.</p>
+                        </div>
+                        <div class="hidden md:block text-2xl font-bold text-gray-300">&rarr;</div>
+                        <!-- Step 3 -->
+                        <div class="flow-step text-center w-full md:w-1/5 bg-white p-6 rounded-lg shadow-md">
+                             <h3 class="font-bold text-lg text-[#588157]">3. Empaque</h3>
+                            <p class="text-sm text-gray-600 mt-2">Empaque al vacío de alta barrera para preservar frescura y nutrientes. Etiquetado completo.</p>
+                        </div>
+                        <div class="hidden md:block text-2xl font-bold text-gray-300">&rarr;</div>
+                        <!-- Step 4 -->
+                        <div class="flow-step text-center w-full md:w-1/5 bg-white p-6 rounded-lg shadow-md">
+                            <h3 class="font-bold text-lg text-[#588157]">4. Congelación</h3>
+                            <p class="text-sm text-gray-600 mt-2">Congelación rápida a -18°C para garantizar la seguridad microbiológica y la calidad del producto.</p>
+                        </div>
+                         <div class="hidden md:block text-2xl font-bold text-gray-300">&rarr;</div>
+                        <!-- Step 5 -->
+                        <div class="flow-step text-center w-full md:w-1/5 bg-white p-6 rounded-lg shadow-md">
+                            <h3 class="font-bold text-lg text-[#588157]">5. Logística</h3>
+                            <p class="text-sm text-gray-600 mt-2">Cadena de frío ininterrumpida hasta la entrega final al cliente a través de canales directos.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Sección de Estrategia de Mercado -->
+            <section class="py-20 bg-white">
+                <div class="container mx-auto px-6">
+                    <div class="text-center mb-16">
+                        <h2 class="text-3xl lg:text-4xl font-bold text-[#3A5A40]">Estrategia de Mercado y Posicionamiento</h2>
+                        <p class="mt-2 text-gray-600">Un enfoque multicanal para capturar y fidelizar al cliente objetivo.</p>
+                    </div>
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                        <div>
+                            <h3 class="text-2xl font-bold mb-4">Posicionamiento Competitivo</h3>
+                            <p class="text-gray-600 mb-6">Nos posicionamos como la opción premium pero accesible, superando a la competencia en calidad de ingredientes y respaldo científico, manteniendo un precio competitivo.</p>
+                            <div class="bg-gray-50 p-6 rounded-lg shadow-inner">
+                                <canvas id="positioningChart"></canvas>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold mb-4">Canales de Venta y Crecimiento</h3>
+                            <div class="space-y-6">
+                                <div class="p-6 bg-gray-50 rounded-lg border-l-4 border-[#588157]">
+                                    <h4 class="font-bold text-lg">Fase 1: Venta Directa y Suscripción</h4>
+                                    <p class="text-gray-600 mt-1">Lanzamiento a través de una plataforma de e-commerce propia para maximizar márgenes, controlar la experiencia del cliente y fomentar la compra recurrente con un modelo de suscripción.</p>
+                                </div>
+                                <div class="p-6 bg-gray-50 rounded-lg border-l-4 border-[#A3B18A]">
+                                    <h4 class="font-bold text-lg">Fase 2: Alianzas Estratégicas (B2B)</h4>
+                                    <p class="text-gray-600 mt-1">Expansión a través de una red selecta de clínicas veterinarias y pet shops premium que actúen como puntos de venta y prescriptores de la marca, generando credibilidad y alcance.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Sección Financiera -->
+            <section class="py-20 bg-gray-50">
+                 <div class="container mx-auto px-6">
+                    <div class="text-center mb-16">
+                        <h2 class="text-3xl lg:text-4xl font-bold text-[#3A5A40]">Análisis Financiero y Proyecciones</h2>
+                        <p class="mt-2 text-gray-600">Los números que sustentan la rentabilidad y el potencial de crecimiento de la inversión.</p>
+                    </div>
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                        <div class="bg-white p-8 rounded-lg shadow-lg">
+                            <h3 class="text-2xl font-bold mb-4 text-center">Estructura de Costos Optimizada</h3>
+                            <div class="h-80 w-full max-w-sm mx-auto">
+                                <canvas id="costsChart"></canvas>
+                            </div>
+                        </div>
+                        <div class="bg-white p-8 rounded-lg shadow-lg">
+                             <h3 class="text-2xl font-bold mb-4 text-center">Proyección de Ingresos a 3 Años</h3>
+                             <div class="h-80 w-full mx-auto">
+                                <canvas id="revenueChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                 </div>
+            </section>
+
+        </main>
+
+        <!-- Footer (Consistente) -->
+        <footer class="bg-[#3A5A40] text-white">
+            <div class="container mx-auto px-6 py-8 text-center">
+                <p>&copy; 2025 BARF Ecuador. Todos los derechos reservados.</p>
+                <p class="text-sm text-gray-300 mt-2">Un Prospecto de Inversión</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        // Menú móvil
+        document.getElementById('mobile-menu-button').addEventListener('click', () => {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        // Gráfico de Posicionamiento
+        new Chart(document.getElementById('positioningChart'), {
+            type: 'radar',
+            data: {
+                labels: ['Calidad Ingredientes', 'Precio', 'Asesoría Nutricional', 'Conveniencia', 'Seguridad Alimentaria'],
+                datasets: [{
+                    label: 'BARF Ecuador',
+                    data: [5, 3, 5, 4, 5],
+                    backgroundColor: 'rgba(88, 129, 87, 0.2)',
+                    borderColor: 'rgba(88, 129, 87, 1)',
+                    borderWidth: 2,
+                    pointBackgroundColor: 'rgba(88, 129, 87, 1)'
+                }, {
+                    label: 'Competencia Promedio',
+                    data: [3, 4, 2, 5, 3],
+                    backgroundColor: 'rgba(173, 181, 189, 0.2)',
+                    borderColor: 'rgba(173, 181, 189, 1)',
+                    borderWidth: 2,
+                    pointBackgroundColor: 'rgba(173, 181, 189, 1)'
+                }]
+            },
+            options: {
+                 maintainAspectRatio: false,
+                 scales: {
+                    r: {
+                        angleLines: { display: false },
+                        suggestedMin: 0,
+                        suggestedMax: 5,
+                        pointLabels: { font: { size: 12 } }
+                    }
+                },
+                plugins: { legend: { position: 'top' } }
+            }
+        });
+
+        // Gráfico de Estructura de Costos
+        new Chart(document.getElementById('costsChart'), {
+            type: 'doughnut',
+            data: {
+                labels: ['Materia Prima', 'Mano de Obra', 'Empaque', 'Marketing', 'Logística', 'G.O.'],
+                datasets: [{
+                    data: [55, 15, 10, 8, 7, 5],
+                    backgroundColor: ['#3A5A40', '#588157', '#A3B18A', '#8a9a7b', '#CED4DA', '#E9ECEF'],
+                    borderColor: '#ffffff',
+                    borderWidth: 4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                cutout: '60%',
+                plugins: { legend: { position: 'bottom' } }
+            }
+        });
+
+        // Gráfico de Proyección de Ingresos
+        new Chart(document.getElementById('revenueChart'), {
+            type: 'bar',
+            data: {
+                labels: ['Año 1', 'Año 2', 'Año 3'],
+                datasets: [{
+                    label: 'Ingresos (en miles USD)',
+                    data: [150, 320, 550],
+                    backgroundColor: '#588157',
+                    borderRadius: 4
+                }, {
+                    label: 'Costos (en miles USD)',
+                    data: [110, 210, 340],
+                    backgroundColor: '#A3B18A',
+                    borderRadius: 4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: { beginAtZero: true },
+                    x: { grid: { display: false } }
+                },
+                plugins: { legend: { position: 'top' } }
+            }
+        });
+
+    </script>
+</body>
+</html>
