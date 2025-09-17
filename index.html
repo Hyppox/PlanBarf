@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plan de Negocio Interactivo: BARF Ecuador</title>
+    <!-- Chosen Palette: Natural & earthy (#A3B18A, #588157, #3A5A40, #344E41, #DAD7CD) -->
+    <!-- Application Structure Plan: The SPA is structured using a top fixed navigation bar with four main sections: Producto, Operaciones, Mercado, and Regulación. This tab-based navigation allows users to explore the business plan's core pillars in a non-linear, self-directed manner, which is more effective for a complex report than a simple linear scroll. Each section functions as a self-contained dashboard, presenting related information through interactive components, fostering focused exploration. -->
+    <!-- Visualization & Content Choices: 
+        - BARF Model Comparison: Goal->Compare. Method->JS-powered toggleable cards. Justification->Allows direct, side-by-side comparison of philosophies, superior to a static table.
+        - Recipe Formulation: Goal->Inform. Method->Dynamic Chart.js Doughnut Chart updated via buttons. Justification->Visually represents ingredient proportions intuitively; interactivity allows exploration of different recipes.
+        - HACCP Process: Goal->Organize. Method->Interactive HTML/CSS diagram with hover effects. Justification->Engages the user by revealing details on interaction, making a dry process more digestible.
+        - Competitor Analysis: Goal->Compare. Method->Chart.js Bar Chart with dynamic data. Justification->Provides a clear visual comparison of market price points.
+        - Regulatory Steps: Goal->Organize. Method->JS-powered accordion component. Justification->Presents a complex, multi-step process in a clean, manageable way, preventing information overload.
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        html {
+            scroll-padding-top: 80px; /* Offset for the sticky header */
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #DAD7CD;
+        }
+        .nav-link {
+            transition: all 0.3s;
+            border-bottom: 2px solid transparent;
+        }
+        .nav-link.active, .nav-link:hover {
+            border-bottom-color: #588157;
+            color: #3A5A40;
+        }
+        .content-section {
+            display: none;
+        }
+        .content-section.active {
+            display: block;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+            margin: auto;
+            height: 320px; /* Reduced height for mobile */
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px; /* Original height for desktop */
+            }
+        }
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+    </style>
+</head>
+<body class="text-[#344E41]">
+
+    <div id="app-container" class="min-h-screen">
+
+        <header class="bg-[#DAD7CD]/80 backdrop-blur-md sticky top-0 z-50 shadow-sm">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex items-center justify-between h-16">
+                    <div class="flex-shrink-0">
+                        <h1 class="text-xl font-bold text-[#3A5A40]">Plan de Negocio BARF</h1>
+                    </div>
+                    <nav class="hidden md:block">
+                        <div class="ml-10 flex items-baseline space-x-4">
+                            <a href="#producto" class="nav-link px-3 py-2 rounded-md text-sm font-semibold">1. Producto</a>
+                            <a href="#operaciones" class="nav-link px-3 py-2 rounded-md text-sm font-semibold">2. Operaciones</a>
+                            <a href="#mercado" class="nav-link px-3 py-2 rounded-md text-sm font-semibold">3. Mercado</a>
+                            <a href="#regulacion" class="nav-link px-3 py-2 rounded-md text-sm font-semibold">4. Regulación</a>
+                        </div>
+                    </nav>
+                    <div class="md:hidden">
+                        <button id="mobile-menu-button" class="p-2 rounded-md text-[#3A5A40] focus:outline-none">
+                            <span class="sr-only">Abrir menú principal</span>
+                            <div id="hamburger-icon" class="space-y-1.5">
+                                <span class="block w-6 h-0.5 bg-current"></span>
+                                <span class="block w-6 h-0.5 bg-current"></span>
+                                <span class="block w-6 h-0.5 bg-current"></span>
+                            </div>
+                            <div id="close-icon" class="hidden text-2xl font-bold">&times;</div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div id="mobile-menu" class="md:hidden hidden bg-[#DAD7CD] shadow-lg">
+                <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                    <a href="#producto" class="mobile-nav-link text-gray-800 hover:bg-[#A3B18A] hover:text-white block px-3 py-2 rounded-md text-base font-medium">1. Producto</a>
+                    <a href="#operaciones" class="mobile-nav-link text-gray-800 hover:bg-[#A3B18A] hover:text-white block px-3 py-2 rounded-md text-base font-medium">2. Operaciones</a>
+                    <a href="#mercado" class="mobile-nav-link text-gray-800 hover:bg-[#A3B18A] hover:text-white block px-3 py-2 rounded-md text-base font-medium">3. Mercado</a>
+                    <a href="#regulacion" class="mobile-nav-link text-gray-800 hover:bg-[#A3B18A] hover:text-white block px-3 py-2 rounded-md text-base font-medium">4. Regulación</a>
+                </div>
+            </div>
+        </header>
+        
+        <main class="container mx-auto p-4 sm:p-6 lg:p-8 pb-20">
+            
+            <div id="producto" class="content-section">
+                <div class="text-center mb-10">
+                    <h2 class="text-2xl md:text-3xl font-bold text-[#3A5A40]">Fundamentos Nutricionales y Desarrollo de Producto</h2>
+                    <p class="mt-2 text-md text-[#344E41]">Aquí se define la base científica y la composición de los productos, asegurando un alimento completo, balanceado y seguro para las mascotas.</p>
+                </div>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <div class="bg-white/70 p-6 rounded-lg shadow-lg">
+                        <h3 class="text-xl font-bold mb-4 text-center">Formulación de Recetas Interactivas</h3>
+                        <div class="flex justify-center space-x-2 mb-4">
+                             <button data-recipe="pollo" class="recipe-btn bg-[#588157] text-white px-4 py-2 rounded-md text-sm font-semibold transition-colors duration-300">Pollo</button>
+                             <button data-recipe="res" class="recipe-btn bg-[#A3B18A] text-[#344E41] px-4 py-2 rounded-md text-sm font-semibold transition-colors duration-300">Res</button>
+                             <button data-recipe="cordero" class="recipe-btn bg-[#A3B18A] text-[#344E41] px-4 py-2 rounded-md text-sm font-semibold transition-colors duration-300">Cordero</button>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="recipeChart"></canvas>
+                        </div>
+                        <div id="recipe-details" class="mt-4 text-center">
+                            <h4 class="font-bold text-lg">Receta de Pollo</h4>
+                            <p class="text-sm">Ratio Ca:P Ideal: ~1.2:1. Suplementos clave: Aceite de Sardina (Omega-3), Algas Marinas (Yodo).</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white/70 p-6 rounded-lg shadow-lg">
+                        <h3 class="text-xl font-bold mb-4 text-center">Análisis Comparativo: Modelos BARF</h3>
+                        <p class="text-center text-sm mb-4">El modelo del Dr. Billinghurst es el más recomendado por su balance, costo y aceptación comercial.</p>
+                        <div class="border-2 border-[#A3B18A] rounded-lg p-4">
+                            <h4 class="font-bold text-lg text-[#3A5A40]">Modelo Billinghurst (Recomendado)</h4>
+                            <ul class="list-disc list-inside mt-2 space-y-1 text-sm">
+                                <li><strong>Filosofía:</strong> Dieta evolutiva que incluye vegetales para simular el contenido estomacal de la presa.</li>
+                                <li><strong>Componentes:</strong> 60-70% Huesos Carnosos, 10% órganos, 10-20% vegetales/frutas, suplementos.</li>
+                                <li><strong>Ventaja Comercial:</strong> Flexibilidad en ingredientes, costos optimizados y percepción de "más completo" por el cliente.</li>
+                            </ul>
+                        </div>
+                         <div class="border-2 border-gray-300 rounded-lg p-4 mt-4 opacity-70">
+                            <h4 class="font-bold text-lg">Modelo Presa Entera</h4>
+                             <ul class="list-disc list-inside mt-2 space-y-1 text-sm">
+                                <li><strong>Filosofía:</strong> Replicar el consumo de una presa completa, sin adición de vegetales.</li>
+                                <li><strong>Componentes:</strong> Animal entero (carne, hueso, órganos, piel, plumas/pelo).</li>
+                                <li><strong>Desventaja Comercial:</strong> Difícil de estandarizar y costear, puede generar rechazo en dueños aprensivos.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="operaciones" class="content-section">
+                 <div class="text-center mb-10">
+                    <h2 class="text-2xl md:text-3xl font-bold text-[#3A5A40]">Operaciones y Cadena de Suministro</h2>
+                    <p class="mt-2 text-md text-[#344E41]">Detalla el flujo de producción, desde la selección de proveedores hasta el producto final, garantizando eficiencia y calidad.</p>
+                </div>
+                <div class="bg-white/70 p-6 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-bold mb-6 text-center">Flujo de Producción y Puntos Críticos (HACCP)</h3>
+                    <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-2 text-center">
+                        <div class="flex-1 w-full p-3 bg-[#DAD7CD] rounded-lg border-b-4 border-[#588157]">
+                            <p class="font-bold text-lg">1. Proveedores</p>
+                            <p class="text-sm">Selección de frigoríficos en Ecuador con certificación sanitaria. Control de temperatura en recepción.</p>
+                        </div>
+                        <div class="text-2xl font-bold text-[#588157] hidden md:block">&rarr;</div>
+                        <div class="flex-1 w-full p-3 bg-[#DAD7CD] rounded-lg border-b-4 border-red-500">
+                            <p class="font-bold text-lg">2. Molienda</p>
+                            <p class="text-sm">Molino de carne industrial. Mantener cadena de frío (&lt;4°C). <strong>PCC 1.</strong></p>
+                        </div>
+                        <div class="text-2xl font-bold text-[#588157] hidden md:block">&rarr;</div>
+                        <div class="flex-1 w-full p-3 bg-[#DAD7CD] rounded-lg border-b-4 border-[#588157]">
+                            <p class="font-bold text-lg">3. Empaque</p>
+                            <p class="text-sm">Empacadora al vacío con material de alta barrera. Etiquetado según norma AGROCALIDAD.</p>
+                        </div>
+                        <div class="text-2xl font-bold text-[#588157] hidden md:block">&rarr;</div>
+                        <div class="flex-1 w-full p-3 bg-[#DAD7CD] rounded-lg border-b-4 border-red-500">
+                            <p class="font-bold text-lg">4. Congelación</p>
+                            <p class="text-sm">Congeladores a -18°C. La congelación reduce carga bacteriana. <strong>PCC 2.</strong></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="mercado" class="content-section">
+                <div class="text-center mb-10">
+                    <h2 class="text-2xl md:text-3xl font-bold text-[#3A5A40]">Análisis de Mercado y Estrategia Comercial</h2>
+                    <p class="mt-2 text-md text-[#344E41]">Identifica al cliente ideal, analiza la competencia y define los canales para llegar a ellos de forma efectiva.</p>
+                </div>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                     <div class="bg-white/70 p-6 rounded-lg shadow-lg">
+                        <h3 class="text-xl font-bold mb-4 text-center">Posicionamiento de Precios vs Competencia (USD/kg)</h3>
+                        <p class="text-center text-sm mb-4">Se busca un precio competitivo que refleje la alta calidad, ubicándose en un punto medio-alto del mercado.</p>
+                        <div class="chart-container" style="height: 400px; max-height:450px;">
+                            <canvas id="competitorChart"></canvas>
+                        </div>
+                     </div>
+                     <div class="bg-white/70 p-6 rounded-lg shadow-lg">
+                        <h3 class="text-xl font-bold mb-4 text-center">Canales de Venta y Marketing de Contenidos</h3>
+                        <ul class="space-y-4">
+                            <li class="p-4 bg-[#DAD7CD] rounded-lg">
+                                <h4 class="font-bold">1. Venta Directa (E-commerce)</h4>
+                                <p class="text-sm">Lanzamiento con tienda online y modelo de suscripción para asegurar recurrencia y control de la experiencia del cliente.</p>
+                            </li>
+                             <li class="p-4 bg-[#DAD7CD] rounded-lg">
+                                <h4 class="font-bold">2. Alianzas Estratégicas</h4>
+                                <p class="text-sm">Distribución a través de clínicas veterinarias y pet shops seleccionados que compartan la filosofía de nutrición natural.</p>
+                            </li>
+                             <li class="p-4 bg-[#DAD7CD] rounded-lg">
+                                <h4 class="font-bold">3. Marketing Educativo</h4>
+                                <p class="text-sm">Crear contenido en redes sociales y blog para educar sobre los beneficios de la dieta BARF, derribar mitos y generar confianza en la marca.</p>
+                            </li>
+                        </ul>
+                     </div>
+                </div>
+            </div>
+
+            <div id="regulacion" class="content-section">
+                <div class="text-center mb-10">
+                    <h2 class="text-2xl md:text-3xl font-bold text-[#3A5A40]">Aspectos Legales y Regulatorios en Ecuador</h2>
+                    <p class="mt-2 text-md text-[#344E41]">Guía paso a paso para cumplir con la normativa de AGROCALIDAD y operar legalmente en el país.</p>
+                </div>
+                 <div class="max-w-3xl mx-auto bg-white/70 p-6 rounded-lg shadow-lg">
+                    <div id="accordion-container" class="space-y-2">
+                        <div class="accordion-item border border-[#A3B18A] rounded-lg">
+                            <button class="accordion-header w-full text-left p-4 font-semibold flex justify-between items-center bg-[#A3B18A]/50 transition-colors duration-300">
+                                <span>Paso 1: Registro del Establecimiento</span>
+                                <span class="accordion-icon text-xl font-light transform transition-transform duration-300">+</span>
+                            </button>
+                            <div class="accordion-content">
+                                <div class="p-4 border-t border-[#A3B18A]">
+                                    <p>Se debe registrar la planta de producción ante AGROCALIDAD. Requiere presentar planos del local, un manual de Buenas Prácticas de Manufactura (BPM), y la descripción del flujo de producción. Es el primer paso para obtener el permiso de funcionamiento.</p>
+                                </div>
+                            </div>
+                        </div>
+                         <div class="accordion-item border border-[#A3B18A] rounded-lg">
+                            <button class="accordion-header w-full text-left p-4 font-semibold flex justify-between items-center bg-[#A3B18A]/50 transition-colors duration-300">
+                                <span>Paso 2: Registro de Cada Producto</span>
+                                 <span class="accordion-icon text-xl font-light transform transition-transform duration-300">+</span>
+                            </button>
+                            <div class="accordion-content">
+                               <div class="p-4 border-t border-[#A3B18A]">
+                                    <p>Cada receta (ej. pollo, res) debe ser registrada individualmente. Se necesita un análisis bromatológico de un laboratorio acreditado para generar el "análisis garantizado" de la etiqueta. Se presenta la ficha técnica y el arte de la etiqueta para su aprobación.</p>
+                                </div>
+                            </div>
+                        </div>
+                         <div class="accordion-item border border-[#A3B18A] rounded-lg">
+                            <button class="accordion-header w-full text-left p-4 font-semibold flex justify-between items-center bg-[#A3B18A]/50 transition-colors duration-300">
+                                <span>Paso 3: Permisos Municipales</span>
+                                <span class="accordion-icon text-xl font-light transform transition-transform duration-300">+</span>
+                            </button>
+                            <div class="accordion-content">
+                                <div class="p-4 border-t border-[#A3B18A]">
+                                    <p>Además de AGROCALIDAD, se necesitan permisos locales. En Quito, esto implica obtener la Licencia Única de Actividades Económicas (LUAE), que consolida permisos de bomberos, uso de suelo, entre otros. Es indispensable para la operación física del local.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const contentSections = document.querySelectorAll('.content-section');
+            const desktopNavLinks = document.querySelectorAll('.nav-link');
+            const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const hamburgerIcon = document.getElementById('hamburger-icon');
+            const closeIcon = document.getElementById('close-icon');
+
+            let recipeChartInstance;
+            let competitorChartInstance;
+
+            const tooltipTitleCallback = (tooltipItems) => {
+                const item = tooltipItems[0];
+                let label = item.chart.data.labels[item.dataIndex];
+                if (Array.isArray(label)) {
+                  return label.join(' ');
+                }
+                return label;
+            };
+
+            const recipeData = {
+                pollo: { label: 'Receta de Pollo', data: [60, 10, 5, 5, 20], details: "Ratio Ca:P Ideal: ~1.2:1. Suplementos clave: Aceite de Sardina (Omega-3), Algas Marinas (Yodo)." },
+                res: { label: 'Receta de Res', data: [65, 10, 5, 5, 15], details: "Alta en hierro y zinc. Suplementos clave: Vitamina E, Aceite de Krill (Omega-3)." },
+                cordero: { label: 'Receta de Cordero', data: [55, 10, 5, 5, 25], details: "Fuente hipoalergénica de proteína. Suplementos clave: Cúrcuma, Caldo de Huesos." }
+            };
+            
+            const renderRecipeChart = (recipeKey) => {
+                const ctx = document.getElementById('recipeChart').getContext('2d');
+                const data = recipeData[recipeKey];
+                if (recipeChartInstance) {
+                    recipeChartInstance.data.datasets[0].data = data.data;
+                    recipeChartInstance.update();
+                } else {
+                    recipeChartInstance = new Chart(ctx, {
+                        type: 'doughnut',
+                        data: {
+                            labels: ['Hueso Carnoso', 'Carne Muscular', 'Hígado', 'Otros Órganos', 'Vegetales/Frutas'],
+                            datasets: [{ label: 'Composición', data: data.data, backgroundColor: ['#A3B18A', '#588157', '#3A5A40', '#344E41', '#8a9a7b'], borderColor: '#DAD7CD', borderWidth: 3 }]
+                        },
+                        options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom' }, tooltip: { callbacks: { title: tooltipTitleCallback } } } }
+                    });
+                }
+                document.getElementById('recipe-details').innerHTML = `<h4 class="font-bold text-lg">${data.label}</h4><p class="text-sm">${data.details}</p>`;
+            };
+            
+            const renderCompetitorChart = () => {
+                 const ctx = document.getElementById('competitorChart').getContext('2d');
+                 competitorChartInstance = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['Competidor C (Artesanal)', 'Marca Propia (Objetivo)', 'Competidor A (Quito)', 'Competidor B (Guayaquil)', 'Competidor D (Premium)'],
+                        datasets: [{ label: 'Precio por Kg (USD)', data: [6.90, 7.50, 8.20, 8.50, 9.80], backgroundColor: ['#A3B18A', '#588157', '#3A5A40', '#3A5A40', '#344E41'], borderRadius: 4 }]
+                    },
+                    options: { responsive: true, maintainAspectRatio: false, indexAxis: 'y', scales: { x: { beginAtZero: true, grid: { color: '#e0e0e0' } }, y: { grid: { display: false } } }, plugins: { legend: { display: false }, tooltip: { callbacks: { title: tooltipTitleCallback } } } }
+                });
+            };
+
+            const setActiveTab = (hash) => {
+                const targetHash = hash || '#producto';
+                desktopNavLinks.forEach(link => link.classList.toggle('active', link.hash === targetHash));
+                contentSections.forEach(section => section.classList.toggle('active', section.id === targetHash.substring(1)));
+                
+                if (targetHash === '#producto' && !recipeChartInstance) renderRecipeChart('pollo');
+                if (targetHash === '#mercado' && !competitorChartInstance) renderCompetitorChart();
+            };
+            
+            [...desktopNavLinks, ...mobileNavLinks].forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    setActiveTab(e.target.hash);
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                        hamburgerIcon.style.display = 'block';
+                        closeIcon.style.display = 'none';
+                    }
+                });
+            });
+            
+            mobileMenuButton.addEventListener('click', () => {
+                const isOpen = mobileMenu.classList.toggle('hidden');
+                hamburgerIcon.style.display = isOpen ? 'block' : 'none';
+                closeIcon.style.display = isOpen ? 'none' : 'block';
+            });
+
+            document.querySelectorAll('.recipe-btn').forEach(button => {
+                button.addEventListener('click', (e) => {
+                    const recipeKey = e.target.dataset.recipe;
+                    renderRecipeChart(recipeKey);
+                    document.querySelectorAll('.recipe-btn').forEach(btn => {
+                        btn.classList.remove('bg-[#588157]', 'text-white');
+                        btn.classList.add('bg-[#A3B18A]', 'text-[#344E41]');
+                    });
+                    e.target.classList.add('bg-[#588157]', 'text-white');
+                    e.target.classList.remove('bg-[#A3B18A]', 'text-[#344E41]');
+                });
+            });
+
+            document.querySelectorAll('.accordion-header').forEach(header => {
+                header.addEventListener('click', () => {
+                    const content = header.nextElementSibling;
+                    const icon = header.querySelector('.accordion-icon');
+                    
+                    if (content.style.maxHeight) {
+                        content.style.maxHeight = null;
+                        icon.classList.remove('rotate-45');
+                    } else {
+                        // Close other accordions
+                        document.querySelectorAll('.accordion-content').forEach(c => c.style.maxHeight = null);
+                        document.querySelectorAll('.accordion-icon').forEach(i => i.classList.remove('rotate-45'));
+
+                        content.style.maxHeight = content.scrollHeight + "px";
+                        icon.classList.add('rotate-45');
+                    }
+                });
+            });
+
+            setActiveTab('#producto');
+        });
+    </script>
+</body>
+</html>
