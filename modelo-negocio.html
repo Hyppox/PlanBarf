@@ -8,7 +8,7 @@
     <!-- Tailwind CSS y Google Fonts -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
     
     <!-- Estilos personalizados -->
@@ -33,6 +33,9 @@
             transform: translateY(-5px);
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
             border-bottom-color: #588157;
+        }
+        .flow-step:hover .flow-icon {
+            transform: scale(1.1);
         }
     </style>
 </head>
@@ -78,72 +81,73 @@
             <!-- Sección de Introducción al Business Model Canvas -->
             <section class="py-20 bg-white">
                 <div class="container mx-auto px-6 text-center">
-                    <h1 class="text-3xl lg:text-5xl font-extrabold text-[#3A5A40] mb-4">Arquitectura del Negocio: Business Model Canvas</h1>
+                    <h1 class="text-3xl lg:text-5xl font-extrabold text-[#3A5A40] mb-4">Arquitectura del Negocio</h1>
                     <p class="text-lg text-gray-600 max-w-3xl mx-auto">
-                        Presentamos un modelo de negocio integral y validado, estructurado en los 9 bloques fundamentales que definen cómo creamos, entregamos y capturamos valor de manera sostenible.
+                        Presentamos un modelo de negocio integral, primero a través del Business Model Canvas para una visión estratégica, y luego detallando el flujo operativo que garantiza su ejecución.
                     </p>
                 </div>
             </section>
 
             <!-- Sección del Business Model Canvas -->
-            <section class="py-20 bg-gray-50">
+            <section class="pt-10 pb-20 bg-gray-50">
                 <div class="container mx-auto px-6">
+                    <div class="text-center mb-16">
+                        <h2 class="text-3xl lg:text-4xl font-bold text-[#3A5A40]">Business Model Canvas</h2>
+                        <p class="mt-2 text-gray-600">La estructura que define cómo creamos, entregamos y capturamos valor.</p>
+                    </div>
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                         
-                        <!-- 1. Socios Clave -->
-                        <div class="canvas-card p-6 rounded-lg shadow-md lg:col-span-1">
-                            <h3 class="text-xl font-bold text-[#3A5A40] mb-3">Socios Clave</h3>
-                            <ul class="space-y-2 text-sm text-gray-700 list-disc list-inside">
-                                <li>Frigoríficos y productores avícolas con certificación sanitaria.</li>
-                                <li>Clínicas veterinarias y nutricionistas caninos (prescriptores).</li>
-                                <li>Tiendas de mascotas (Pet Shops) de nicho premium.</li>
-                                <li>Proveedores de empaque y logística de cadena de frío.</li>
-                            </ul>
-                        </div>
-
-                        <!-- 2. Actividades y 3. Recursos Clave -->
-                        <div class="space-y-6 lg:col-span-1">
+                        <!-- Columna Izquierda -->
+                        <div class="space-y-6">
                             <div class="canvas-card p-6 rounded-lg shadow-md">
+                                <h3 class="text-xl font-bold text-[#3A5A40] mb-3">Socios Clave</h3>
+                                <ul class="space-y-2 text-sm text-gray-700 list-disc list-inside">
+                                    <li>Frigoríficos y productores avícolas certificados.</li>
+                                    <li>Clínicas veterinarias y nutricionistas (prescriptores).</li>
+                                    <li>Proveedores de empaque y logística de cadena de frío.</li>
+                                </ul>
+                            </div>
+                             <div class="canvas-card p-6 rounded-lg shadow-md">
                                 <h3 class="text-xl font-bold text-[#3A5A40] mb-3">Actividades Clave</h3>
                                 <ul class="space-y-2 text-sm text-gray-700 list-disc list-inside">
                                     <li>Producción y formulación bajo normas HACCP.</li>
-                                    <li>Gestión de cadena de suministro (calidad y frío).</li>
-                                    <li>Marketing de contenidos y educación al cliente.</li>
+                                    <li>Gestión de cadena de suministro y calidad.</li>
+                                    <li>Marketing de contenidos y educación.</li>
                                     <li>Logística de entrega directa (D2C).</li>
                                 </ul>
                             </div>
                             <div class="canvas-card p-6 rounded-lg shadow-md">
                                 <h3 class="text-xl font-bold text-[#3A5A40] mb-3">Recursos Clave</h3>
                                 <ul class="space-y-2 text-sm text-gray-700 list-disc list-inside">
-                                    <li>Planta de producción con equipamiento industrial.</li>
+                                    <li>Planta de producción y equipamiento.</li>
                                     <li>Recetas balanceadas (propiedad intelectual).</li>
-                                    <li>Plataforma de e-commerce y calculadora digital.</li>
+                                    <li>Plataforma de e-commerce.</li>
                                     <li>Red de proveedores de confianza.</li>
                                 </ul>
                             </div>
                         </div>
-                        
-                        <!-- 4. Propuesta de Valor -->
-                        <div class="canvas-card p-6 rounded-lg shadow-md lg:row-span-2 bg-[#A3B18A]/20">
-                             <h3 class="text-xl font-bold text-[#3A5A40] mb-3">Propuesta de Valor</h3>
-                            <ul class="space-y-3 text-sm text-gray-800 list-disc list-inside">
-                                <li><strong class="font-semibold">Salud y Bienestar:</strong> Alimento 100% natural, crudo y biológicamente apropiado que mejora la vitalidad de la mascota.</li>
-                                <li><strong class="font-semibold">Conveniencia:</strong> Modelo de suscripción y entrega a domicilio que simplifica la vida del dueño.</li>
-                                <li><strong class="font-semibold">Confianza y Seguridad:</strong> Cumplimiento total de la regulación de AGROCALIDAD y protocolos HACCP.</li>
-                                <li><strong class="font-semibold">Asesoría y Educación:</strong> Herramientas como la calculadora y contenido de valor que empoderan al cliente.</li>
-                                <li><strong class="font-semibold">Calidad Premium:</strong> Ingredientes de origen local, frescos y de grado de consumo humano.</li>
-                            </ul>
+
+                        <!-- Columna Central -->
+                        <div class="space-y-6">
+                            <div class="canvas-card p-6 rounded-lg shadow-md h-full bg-[#A3B18A]/20">
+                                <h3 class="text-xl font-bold text-[#3A5A40] mb-3">Propuesta de Valor</h3>
+                                <ul class="space-y-3 text-sm text-gray-800 list-disc list-inside">
+                                    <li><strong class="font-semibold">Salud y Bienestar:</strong> Alimento 100% natural, crudo y biológicamente apropiado.</li>
+                                    <li><strong class="font-semibold">Conveniencia:</strong> Modelo de suscripción y entrega a domicilio.</li>
+                                    <li><strong class="font-semibold">Confianza y Seguridad:</strong> Cumplimiento total de regulación (AGROCALIDAD) y protocolos HACCP.</li>
+                                    <li><strong class="font-semibold">Asesoría y Educación:</strong> Herramientas digitales y contenido de valor.</li>
+                                </ul>
+                            </div>
                         </div>
 
-                        <!-- 5. Relaciones con Clientes y 6. Canales -->
-                         <div class="space-y-6 lg:col-span-1">
+                        <!-- Columna Derecha -->
+                        <div class="space-y-6">
                             <div class="canvas-card p-6 rounded-lg shadow-md">
                                 <h3 class="text-xl font-bold text-[#3A5A40] mb-3">Relaciones con Clientes</h3>
                                 <ul class="space-y-2 text-sm text-gray-700 list-disc list-inside">
                                     <li>Asistencia personalizada y educativa.</li>
                                     <li>Comunidad digital (redes sociales, blog).</li>
                                     <li>Modelo de suscripción para fidelización.</li>
-                                    <li>Comunicación transparente sobre procesos.</li>
                                 </ul>
                             </div>
                             <div class="canvas-card p-6 rounded-lg shadow-md">
@@ -151,45 +155,96 @@
                                 <ul class="space-y-2 text-sm text-gray-700 list-disc list-inside">
                                     <li>E-commerce (venta directa D2C).</li>
                                     <li>Modelo de suscripción programada.</li>
-                                    <li>Red de distribución B2B (veterinarias, pet shops).</li>
-                                    <li>Marketing digital y redes sociales.</li>
+                                    <li>Red B2B (veterinarias, pet shops).</li>
+                                </ul>
+                            </div>
+                             <div class="canvas-card p-6 rounded-lg shadow-md">
+                                <h3 class="text-xl font-bold text-[#3A5A40] mb-3">Segmentos de Clientes</h3>
+                                <ul class="space-y-2 text-sm text-gray-700 list-disc list-inside">
+                                    <li>Dueños de mascotas informados y preocupados por la salud.</li>
+                                    <li>Hogares urbanos de poder adquisitivo medio-alto.</li>
+                                    <li>Criadores y profesionales del sector canino.</li>
                                 </ul>
                             </div>
                         </div>
 
-                        <!-- 7. Segmentos de Clientes -->
-                        <div class="canvas-card p-6 rounded-lg shadow-md lg:col-span-1">
-                             <h3 class="text-xl font-bold text-[#3A5A40] mb-3">Segmentos de Clientes</h3>
-                            <ul class="space-y-2 text-sm text-gray-700 list-disc list-inside">
-                                <li>Dueños de mascotas informados y preocupados por la salud (25-50 años).</li>
-                                <li>Hogares en zonas urbanas de Ecuador (Quito, Guayaquil, Cuenca).</li>
-                                <li>Clientes con poder adquisitivo medio-alto que ven a su mascota como un miembro de la familia.</li>
-                                <li>Criadores y profesionales del sector canino.</li>
-                            </ul>
+                        <!-- Fila Inferior -->
+                        <div class="canvas-card p-6 rounded-lg shadow-md md:col-span-2 lg:col-span-3">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <h3 class="text-xl font-bold text-[#3A5A40] mb-3">Estructura de Costes</h3>
+                                    <ul class="space-y-2 text-sm text-gray-700 list-disc list-inside">
+                                        <li>Costos Variables: Materia prima, empaque, logística.</li>
+                                        <li>Costos Fijos: Salarios, alquiler de planta, servicios básicos, marketing.</li>
+                                        <li>Costos de Capital (CAPEX): Equipamiento industrial.</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-bold text-[#3A5A40] mb-3">Fuentes de Ingresos</h3>
+                                    <ul class="space-y-2 text-sm text-gray-700 list-disc list-inside">
+                                        <li>Venta directa de productos (pago único).</li>
+                                        <li>Ingresos recurrentes por modelo de suscripción (MRR).</li>
+                                        <li>Ventas al por mayor (B2B) a distribuidores.</li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
+                    </div>
+                </div>
+            </section>
 
-                        <!-- 8. Estructura de Costes -->
-                        <div class="canvas-card p-6 rounded-lg shadow-md lg:col-span-2">
-                             <h3 class="text-xl font-bold text-[#3A5A40] mb-3">Estructura de Costes</h3>
-                             <ul class="space-y-2 text-sm text-gray-700 list-disc list-inside sm:columns-2">
-                                <li>Costos de materia prima (carne, huesos, órganos).</li>
-                                <li>Costos de producción (mano de obra, energía).</li>
-                                <li>Empaque y etiquetado.</li>
-                                <li>Logística y mantenimiento de cadena de frío.</li>
-                                <li>Marketing y mantenimiento de plataforma web.</li>
-                                <li>Costos regulatorios y de certificación.</li>
-                                <li>Salarios y gastos operativos (G.O.).</li>
-                            </ul>
-                        </div>
-
-                        <!-- 9. Fuentes de Ingresos -->
-                        <div class="canvas-card p-6 rounded-lg shadow-md lg:col-span-1">
-                             <h3 class="text-xl font-bold text-[#3A5A40] mb-3">Fuentes de Ingresos</h3>
-                            <ul class="space-y-2 text-sm text-gray-700 list-disc list-inside">
-                                <li>Venta directa de productos (pago único).</li>
-                                <li>Ingresos recurrentes por modelo de suscripción.</li>
-                                <li>Ventas al por mayor (B2B) a distribuidores.</li>
-                            </ul>
+            <!-- NUEVA SECCIÓN: Flujo Operativo -->
+            <section class="py-20 bg-white">
+                <div class="container mx-auto px-6">
+                    <div class="text-center mb-16">
+                        <h2 class="text-3xl lg:text-4xl font-bold text-[#3A5A40]">Flujo Operativo: De la Materia Prima a la Entrega Final</h2>
+                        <p class="mt-2 text-gray-600">La ejecución paso a paso de nuestras "Actividades Clave" para garantizar calidad, seguridad y eficiencia.</p>
+                    </div>
+                    <div class="relative">
+                        <!-- Línea de conexión (visible en pantallas grandes) -->
+                        <div class="hidden lg:block absolute top-1/2 left-0 w-full h-0.5 bg-gray-300 -translate-y-1/2"></div>
+                        
+                        <div class="relative grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8">
+                            <!-- Paso 1 -->
+                            <div class="flow-step text-center bg-gray-50 p-6 rounded-lg shadow-md z-10">
+                                <div class="flow-icon mx-auto bg-[#A3B18A]/30 w-16 h-16 rounded-full flex items-center justify-center mb-4 transition-transform duration-300">
+                                    <svg class="w-8 h-8 text-[#3A5A40]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                                </div>
+                                <h3 class="font-bold text-lg text-[#588157]">1. Adquisición</h3>
+                                <p class="text-sm text-gray-600 mt-2">Control de calidad y temperatura de ingredientes certificados en recepción.</p>
+                            </div>
+                             <!-- Paso 2 -->
+                            <div class="flow-step text-center bg-gray-50 p-6 rounded-lg shadow-md z-10">
+                                <div class="flow-icon mx-auto bg-[#A3B18A]/30 w-16 h-16 rounded-full flex items-center justify-center mb-4 transition-transform duration-300">
+                                    <svg class="w-8 h-8 text-[#3A5A40]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.471-2.471a1.125 1.125 0 011.591 1.591l-2.471 2.471M11.42 15.17L6.87 20.63a1.125 1.125 0 01-1.59-1.59l4.557-4.557m3.75-3.75l.47- .47a2.25 2.25 0 00-3.182-3.182l-.47.47m3.182 3.182l-3.182-3.182m0 0a2.25 2.25 0 00-3.182 3.182l3.182-3.182" /></svg>
+                                </div>
+                                <h3 class="font-bold text-lg text-[#588157]">2. Producción</h3>
+                                <p class="text-sm text-gray-600 mt-2">Molienda, mezcla y formulación precisa bajo estrictas normas de higiene.</p>
+                            </div>
+                             <!-- Paso 3 -->
+                            <div class="flow-step text-center bg-gray-50 p-6 rounded-lg shadow-md z-10">
+                                <div class="flow-icon mx-auto bg-[#A3B18A]/30 w-16 h-16 rounded-full flex items-center justify-center mb-4 transition-transform duration-300">
+                                    <svg class="w-8 h-8 text-[#3A5A40]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-14L4 7m8 4v10M4 7v10l8 4"></path></svg>
+                                </div>
+                                <h3 class="font-bold text-lg text-[#588157]">3. Empaque</h3>
+                                <p class="text-sm text-gray-600 mt-2">Empaque al vacío para preservar frescura y etiquetado conforme a la normativa.</p>
+                            </div>
+                             <!-- Paso 4 -->
+                            <div class="flow-step text-center bg-gray-50 p-6 rounded-lg shadow-md z-10">
+                                <div class="flow-icon mx-auto bg-[#A3B18A]/30 w-16 h-16 rounded-full flex items-center justify-center mb-4 transition-transform duration-300">
+                                    <svg class="w-8 h-8 text-[#3A5A40]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" /></svg>
+                                </div>
+                                <h3 class="font-bold text-lg text-[#588157]">4. Congelación</h3>
+                                <p class="text-sm text-gray-600 mt-2">Congelación rápida a -18°C para garantizar seguridad y calidad del producto final.</p>
+                            </div>
+                             <!-- Paso 5 -->
+                            <div class="flow-step text-center bg-gray-50 p-6 rounded-lg shadow-md z-10">
+                                <div class="flow-icon mx-auto bg-[#A3B18A]/30 w-16 h-16 rounded-full flex items-center justify-center mb-4 transition-transform duration-300">
+                                    <svg class="w-8 h-8 text-[#3A5A40]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10l2 2h8a1 1 0 001-1zM3 11h10"></path></svg>
+                                </div>
+                                <h3 class="font-bold text-lg text-[#588157]">5. Entrega</h3>
+                                <p class="text-sm text-gray-600 mt-2">Logística con cadena de frío garantizada hasta la puerta del cliente.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
