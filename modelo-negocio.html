@@ -5,11 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Modelo de Negocio - BARF Ecuador</title>
     
-    <!-- Tailwind CSS, Google Fonts y Chart.js -->
+    <!-- Tailwind CSS y Google Fonts -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
     
     <!-- Estilos personalizados -->
@@ -25,14 +24,15 @@
         .nav-link:hover {
             color: #A3B18A;
         }
-        .flow-step {
+        .canvas-card {
+            background-color: white;
             transition: all 0.3s ease-in-out;
-            border-bottom-width: 4px;
-            border-color: transparent;
+            border-bottom: 4px solid transparent;
         }
-        .flow-step:hover {
+        .canvas-card:hover {
             transform: translateY(-5px);
-            border-color: #588157;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            border-bottom-color: #588157;
         }
     </style>
 </head>
@@ -75,113 +75,125 @@
         <!-- Contenido Principal -->
         <main>
             
-            <!-- Sección de Introducción al Modelo -->
+            <!-- Sección de Introducción al Business Model Canvas -->
             <section class="py-20 bg-white">
                 <div class="container mx-auto px-6 text-center">
-                    <h1 class="text-3xl lg:text-5xl font-extrabold text-[#3A5A40] mb-4">La Maquinaria del Emprendimiento</h1>
+                    <h1 class="text-3xl lg:text-5xl font-extrabold text-[#3A5A40] mb-4">Arquitectura del Negocio: Business Model Canvas</h1>
                     <p class="text-lg text-gray-600 max-w-3xl mx-auto">
-                        Un producto superior requiere un modelo de negocio robusto. Presentamos un sistema operativo diseñado para la eficiencia, la escalabilidad y una rentabilidad sostenible en el mercado ecuatoriano.
+                        Presentamos un modelo de negocio integral y validado, estructurado en los 9 bloques fundamentales que definen cómo creamos, entregamos y capturamos valor de manera sostenible.
                     </p>
                 </div>
             </section>
 
-            <!-- Sección Flujo de Operaciones -->
+            <!-- Sección del Business Model Canvas -->
             <section class="py-20 bg-gray-50">
                 <div class="container mx-auto px-6">
-                    <div class="text-center mb-16">
-                        <h2 class="text-3xl lg:text-4xl font-bold text-[#3A5A40]">Flujo Operativo: De la Granja al Hogar</h2>
-                        <p class="mt-2 text-gray-600">Un proceso optimizado que garantiza la máxima calidad y seguridad en cada etapa.</p>
-                    </div>
-                    <div class="flex flex-col md:flex-row justify-between items-center space-y-8 md:space-y-0 md:space-x-4">
-                        <!-- Step 1 -->
-                        <div class="flow-step text-center w-full md:w-1/5 bg-white p-6 rounded-lg shadow-md">
-                            <h3 class="font-bold text-lg text-[#588157]">1. Proveedores</h3>
-                            <p class="text-sm text-gray-600 mt-2">Selección rigurosa de frigoríficos y productores locales con certificación sanitaria.</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        
+                        <!-- 1. Socios Clave -->
+                        <div class="canvas-card p-6 rounded-lg shadow-md lg:col-span-1">
+                            <h3 class="text-xl font-bold text-[#3A5A40] mb-3">Socios Clave</h3>
+                            <ul class="space-y-2 text-sm text-gray-700 list-disc list-inside">
+                                <li>Frigoríficos y productores avícolas con certificación sanitaria.</li>
+                                <li>Clínicas veterinarias y nutricionistas caninos (prescriptores).</li>
+                                <li>Tiendas de mascotas (Pet Shops) de nicho premium.</li>
+                                <li>Proveedores de empaque y logística de cadena de frío.</li>
+                            </ul>
                         </div>
-                        <div class="hidden md:block text-2xl font-bold text-gray-300">&rarr;</div>
-                        <!-- Step 2 -->
-                        <div class="flow-step text-center w-full md:w-1/5 bg-white p-6 rounded-lg shadow-md">
-                            <h3 class="font-bold text-lg text-[#588157]">2. Producción</h3>
-                            <p class="text-sm text-gray-600 mt-2">Molienda, mezcla y formulación precisa en un ambiente controlado bajo normas HACCP.</p>
-                        </div>
-                        <div class="hidden md:block text-2xl font-bold text-gray-300">&rarr;</div>
-                        <!-- Step 3 -->
-                        <div class="flow-step text-center w-full md:w-1/5 bg-white p-6 rounded-lg shadow-md">
-                             <h3 class="font-bold text-lg text-[#588157]">3. Empaque</h3>
-                            <p class="text-sm text-gray-600 mt-2">Empaque al vacío de alta barrera para preservar frescura y nutrientes. Etiquetado completo.</p>
-                        </div>
-                        <div class="hidden md:block text-2xl font-bold text-gray-300">&rarr;</div>
-                        <!-- Step 4 -->
-                        <div class="flow-step text-center w-full md:w-1/5 bg-white p-6 rounded-lg shadow-md">
-                            <h3 class="font-bold text-lg text-[#588157]">4. Congelación</h3>
-                            <p class="text-sm text-gray-600 mt-2">Congelación rápida a -18°C para garantizar la seguridad microbiológica y la calidad del producto.</p>
-                        </div>
-                         <div class="hidden md:block text-2xl font-bold text-gray-300">&rarr;</div>
-                        <!-- Step 5 -->
-                        <div class="flow-step text-center w-full md:w-1/5 bg-white p-6 rounded-lg shadow-md">
-                            <h3 class="font-bold text-lg text-[#588157]">5. Logística</h3>
-                            <p class="text-sm text-gray-600 mt-2">Cadena de frío ininterrumpida hasta la entrega final al cliente a través de canales directos.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            
-            <!-- Sección de Estrategia de Mercado -->
-            <section class="py-20 bg-white">
-                <div class="container mx-auto px-6">
-                    <div class="text-center mb-16">
-                        <h2 class="text-3xl lg:text-4xl font-bold text-[#3A5A40]">Estrategia de Mercado y Posicionamiento</h2>
-                        <p class="mt-2 text-gray-600">Un enfoque multicanal para capturar y fidelizar al cliente objetivo.</p>
-                    </div>
-                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                        <div>
-                            <h3 class="text-2xl font-bold mb-4">Posicionamiento Competitivo</h3>
-                            <p class="text-gray-600 mb-6">Nos posicionamos como la opción premium pero accesible, superando a la competencia en calidad de ingredientes y respaldo científico, manteniendo un precio competitivo.</p>
-                            <div class="bg-gray-50 p-6 rounded-lg shadow-inner">
-                                <canvas id="positioningChart"></canvas>
-                            </div>
-                        </div>
-                        <div>
-                            <h3 class="text-2xl font-bold mb-4">Canales de Venta y Crecimiento</h3>
-                            <div class="space-y-6">
-                                <div class="p-6 bg-gray-50 rounded-lg border-l-4 border-[#588157]">
-                                    <h4 class="font-bold text-lg">Fase 1: Venta Directa y Suscripción</h4>
-                                    <p class="text-gray-600 mt-1">Lanzamiento a través de una plataforma de e-commerce propia para maximizar márgenes, controlar la experiencia del cliente y fomentar la compra recurrente con un modelo de suscripción.</p>
-                                </div>
-                                <div class="p-6 bg-gray-50 rounded-lg border-l-4 border-[#A3B18A]">
-                                    <h4 class="font-bold text-lg">Fase 2: Alianzas Estratégicas (B2B)</h4>
-                                    <p class="text-gray-600 mt-1">Expansión a través de una red selecta de clínicas veterinarias y pet shops premium que actúen como puntos de venta y prescriptores de la marca, generando credibilidad y alcance.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            
-            <!-- Sección Financiera -->
-            <section class="py-20 bg-gray-50">
-                 <div class="container mx-auto px-6">
-                    <div class="text-center mb-16">
-                        <h2 class="text-3xl lg:text-4xl font-bold text-[#3A5A40]">Análisis Financiero y Proyecciones</h2>
-                        <p class="mt-2 text-gray-600">Los números que sustentan la rentabilidad y el potencial de crecimiento de la inversión.</p>
-                    </div>
-                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                        <div class="bg-white p-8 rounded-lg shadow-lg">
-                            <h3 class="text-2xl font-bold mb-4 text-center">Estructura de Costos Optimizada</h3>
-                            <div class="h-80 w-full max-w-sm mx-auto">
-                                <canvas id="costsChart"></canvas>
-                            </div>
-                        </div>
-                        <div class="bg-white p-8 rounded-lg shadow-lg">
-                             <h3 class="text-2xl font-bold mb-4 text-center">Proyección de Ingresos a 3 Años</h3>
-                             <div class="h-80 w-full mx-auto">
-                                <canvas id="revenueChart"></canvas>
-                            </div>
-                        </div>
-                    </div>
-                 </div>
-            </section>
 
+                        <!-- 2. Actividades y 3. Recursos Clave -->
+                        <div class="space-y-6 lg:col-span-1">
+                            <div class="canvas-card p-6 rounded-lg shadow-md">
+                                <h3 class="text-xl font-bold text-[#3A5A40] mb-3">Actividades Clave</h3>
+                                <ul class="space-y-2 text-sm text-gray-700 list-disc list-inside">
+                                    <li>Producción y formulación bajo normas HACCP.</li>
+                                    <li>Gestión de cadena de suministro (calidad y frío).</li>
+                                    <li>Marketing de contenidos y educación al cliente.</li>
+                                    <li>Logística de entrega directa (D2C).</li>
+                                </ul>
+                            </div>
+                            <div class="canvas-card p-6 rounded-lg shadow-md">
+                                <h3 class="text-xl font-bold text-[#3A5A40] mb-3">Recursos Clave</h3>
+                                <ul class="space-y-2 text-sm text-gray-700 list-disc list-inside">
+                                    <li>Planta de producción con equipamiento industrial.</li>
+                                    <li>Recetas balanceadas (propiedad intelectual).</li>
+                                    <li>Plataforma de e-commerce y calculadora digital.</li>
+                                    <li>Red de proveedores de confianza.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <!-- 4. Propuesta de Valor -->
+                        <div class="canvas-card p-6 rounded-lg shadow-md lg:row-span-2 bg-[#A3B18A]/20">
+                             <h3 class="text-xl font-bold text-[#3A5A40] mb-3">Propuesta de Valor</h3>
+                            <ul class="space-y-3 text-sm text-gray-800 list-disc list-inside">
+                                <li><strong class="font-semibold">Salud y Bienestar:</strong> Alimento 100% natural, crudo y biológicamente apropiado que mejora la vitalidad de la mascota.</li>
+                                <li><strong class="font-semibold">Conveniencia:</strong> Modelo de suscripción y entrega a domicilio que simplifica la vida del dueño.</li>
+                                <li><strong class="font-semibold">Confianza y Seguridad:</strong> Cumplimiento total de la regulación de AGROCALIDAD y protocolos HACCP.</li>
+                                <li><strong class="font-semibold">Asesoría y Educación:</strong> Herramientas como la calculadora y contenido de valor que empoderan al cliente.</li>
+                                <li><strong class="font-semibold">Calidad Premium:</strong> Ingredientes de origen local, frescos y de grado de consumo humano.</li>
+                            </ul>
+                        </div>
+
+                        <!-- 5. Relaciones con Clientes y 6. Canales -->
+                         <div class="space-y-6 lg:col-span-1">
+                            <div class="canvas-card p-6 rounded-lg shadow-md">
+                                <h3 class="text-xl font-bold text-[#3A5A40] mb-3">Relaciones con Clientes</h3>
+                                <ul class="space-y-2 text-sm text-gray-700 list-disc list-inside">
+                                    <li>Asistencia personalizada y educativa.</li>
+                                    <li>Comunidad digital (redes sociales, blog).</li>
+                                    <li>Modelo de suscripción para fidelización.</li>
+                                    <li>Comunicación transparente sobre procesos.</li>
+                                </ul>
+                            </div>
+                            <div class="canvas-card p-6 rounded-lg shadow-md">
+                                <h3 class="text-xl font-bold text-[#3A5A40] mb-3">Canales</h3>
+                                <ul class="space-y-2 text-sm text-gray-700 list-disc list-inside">
+                                    <li>E-commerce (venta directa D2C).</li>
+                                    <li>Modelo de suscripción programada.</li>
+                                    <li>Red de distribución B2B (veterinarias, pet shops).</li>
+                                    <li>Marketing digital y redes sociales.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- 7. Segmentos de Clientes -->
+                        <div class="canvas-card p-6 rounded-lg shadow-md lg:col-span-1">
+                             <h3 class="text-xl font-bold text-[#3A5A40] mb-3">Segmentos de Clientes</h3>
+                            <ul class="space-y-2 text-sm text-gray-700 list-disc list-inside">
+                                <li>Dueños de mascotas informados y preocupados por la salud (25-50 años).</li>
+                                <li>Hogares en zonas urbanas de Ecuador (Quito, Guayaquil, Cuenca).</li>
+                                <li>Clientes con poder adquisitivo medio-alto que ven a su mascota como un miembro de la familia.</li>
+                                <li>Criadores y profesionales del sector canino.</li>
+                            </ul>
+                        </div>
+
+                        <!-- 8. Estructura de Costes -->
+                        <div class="canvas-card p-6 rounded-lg shadow-md lg:col-span-2">
+                             <h3 class="text-xl font-bold text-[#3A5A40] mb-3">Estructura de Costes</h3>
+                             <ul class="space-y-2 text-sm text-gray-700 list-disc list-inside sm:columns-2">
+                                <li>Costos de materia prima (carne, huesos, órganos).</li>
+                                <li>Costos de producción (mano de obra, energía).</li>
+                                <li>Empaque y etiquetado.</li>
+                                <li>Logística y mantenimiento de cadena de frío.</li>
+                                <li>Marketing y mantenimiento de plataforma web.</li>
+                                <li>Costos regulatorios y de certificación.</li>
+                                <li>Salarios y gastos operativos (G.O.).</li>
+                            </ul>
+                        </div>
+
+                        <!-- 9. Fuentes de Ingresos -->
+                        <div class="canvas-card p-6 rounded-lg shadow-md lg:col-span-1">
+                             <h3 class="text-xl font-bold text-[#3A5A40] mb-3">Fuentes de Ingresos</h3>
+                            <ul class="space-y-2 text-sm text-gray-700 list-disc list-inside">
+                                <li>Venta directa de productos (pago único).</li>
+                                <li>Ingresos recurrentes por modelo de suscripción.</li>
+                                <li>Ventas al por mayor (B2B) a distribuidores.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </main>
 
         <!-- Footer (Consistente) -->
@@ -199,90 +211,7 @@
         document.getElementById('mobile-menu-button').addEventListener('click', () => {
             document.getElementById('mobile-menu').classList.toggle('hidden');
         });
-
-        // Gráfico de Posicionamiento
-        new Chart(document.getElementById('positioningChart'), {
-            type: 'radar',
-            data: {
-                labels: ['Calidad Ingredientes', 'Precio', 'Asesoría Nutricional', 'Conveniencia', 'Seguridad Alimentaria'],
-                datasets: [{
-                    label: 'BARF Ecuador',
-                    data: [5, 3, 5, 4, 5],
-                    backgroundColor: 'rgba(88, 129, 87, 0.2)',
-                    borderColor: 'rgba(88, 129, 87, 1)',
-                    borderWidth: 2,
-                    pointBackgroundColor: 'rgba(88, 129, 87, 1)'
-                }, {
-                    label: 'Competencia Promedio',
-                    data: [3, 4, 2, 5, 3],
-                    backgroundColor: 'rgba(173, 181, 189, 0.2)',
-                    borderColor: 'rgba(173, 181, 189, 1)',
-                    borderWidth: 2,
-                    pointBackgroundColor: 'rgba(173, 181, 189, 1)'
-                }]
-            },
-            options: {
-                 maintainAspectRatio: false,
-                 scales: {
-                    r: {
-                        angleLines: { display: false },
-                        suggestedMin: 0,
-                        suggestedMax: 5,
-                        pointLabels: { font: { size: 12 } }
-                    }
-                },
-                plugins: { legend: { position: 'top' } }
-            }
-        });
-
-        // Gráfico de Estructura de Costos
-        new Chart(document.getElementById('costsChart'), {
-            type: 'doughnut',
-            data: {
-                labels: ['Materia Prima', 'Mano de Obra', 'Empaque', 'Marketing', 'Logística', 'G.O.'],
-                datasets: [{
-                    data: [55, 15, 10, 8, 7, 5],
-                    backgroundColor: ['#3A5A40', '#588157', '#A3B18A', '#8a9a7b', '#CED4DA', '#E9ECEF'],
-                    borderColor: '#ffffff',
-                    borderWidth: 4
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                cutout: '60%',
-                plugins: { legend: { position: 'bottom' } }
-            }
-        });
-
-        // Gráfico de Proyección de Ingresos
-        new Chart(document.getElementById('revenueChart'), {
-            type: 'bar',
-            data: {
-                labels: ['Año 1', 'Año 2', 'Año 3'],
-                datasets: [{
-                    label: 'Ingresos (en miles USD)',
-                    data: [150, 320, 550],
-                    backgroundColor: '#588157',
-                    borderRadius: 4
-                }, {
-                    label: 'Costos (en miles USD)',
-                    data: [110, 210, 340],
-                    backgroundColor: '#A3B18A',
-                    borderRadius: 4
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                scales: {
-                    y: { beginAtZero: true },
-                    x: { grid: { display: false } }
-                },
-                plugins: { legend: { position: 'top' } }
-            }
-        });
-
     </script>
 </body>
 </html>
+
