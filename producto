@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Producto - BARF Ecuador</title>
+    
+    <!-- Tailwind CSS, Google Fonts y Chart.js -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Estilos personalizados consistentes con index.html -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F8F9FA;
+            color: #212529;
+        }
+        .nav-link {
+            transition: color 0.3s ease-in-out;
+        }
+        .nav-link:hover {
+            color: #A3B18A;
+        }
+        .recipe-btn {
+            transition: all 0.3s ease-in-out;
+        }
+        .recipe-btn.active {
+            background-color: #3A5A40;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Contenedor principal de la aplicación -->
+    <div id="app-container">
+
+        <!-- Header y Navegación (Consistente) -->
+        <header class="bg-white/80 backdrop-blur-lg sticky top-0 z-50 shadow-sm">
+            <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+                <div class="font-extrabold text-2xl text-[#3A5A40]">
+                    <a href="index.html">BARF Ecuador</a>
+                </div>
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="nav-link">Inicio</a>
+                    <a href="producto.html" class="nav-link font-semibold text-[#588157]">El Producto</a>
+                    <a href="modelo-negocio.html" class="nav-link">Modelo de Negocio</a>
+                    <a href="regulacion.html" class="nav-link">Regulación</a>
+                    <a href="calculadora.html" class="nav-link">Calculadora</a>
+                    <a href="contacto.html" class="bg-[#588157] text-white px-4 py-2 rounded-md hover:bg-[#3A5A40] transition-colors">Contacto</a>
+                </nav>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-[#3A5A40] focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                    </button>
+                </div>
+            </div>
+            <!-- Menú Móvil -->
+            <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg">
+                <a href="index.html" class="block py-2 px-4 text-sm hover:bg-gray-100">Inicio</a>
+                <a href="producto.html" class="block py-2 px-4 text-sm hover:bg-gray-100 font-semibold text-[#588157]">El Producto</a>
+                <a href="modelo-negocio.html" class="block py-2 px-4 text-sm hover:bg-gray-100">Modelo de Negocio</a>
+                <a href="regulacion.html" class="block py-2 px-4 text-sm hover:bg-gray-100">Regulación</a>
+                <a href="calculadora.html" class="block py-2 px-4 text-sm hover:bg-gray-100">Calculadora</a>
+                <a href="contacto.html" class="block py-2 px-4 text-sm hover:bg-gray-100">Contacto</a>
+            </div>
+        </header>
+
+        <!-- Contenido Principal -->
+        <main>
+            
+            <!-- Sección de Filosofía Nutricional -->
+            <section class="py-20 bg-white">
+                <div class="container mx-auto px-6 text-center">
+                    <h1 class="text-3xl lg:text-5xl font-extrabold text-[#3A5A40] mb-4">La Ciencia de una Nutrición Superior</h1>
+                    <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                        Nuestro compromiso no es solo vender alimento, es entregar salud, vitalidad y bienestar a través de dietas biológicamente apropiadas, formuladas con rigor científico y los mejores ingredientes locales.
+                    </p>
+                </div>
+                <div class="container mx-auto px-6 mt-16">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-10 text-center">
+                        <div class="feature-item">
+                            <div class="mx-auto bg-[#A3B18A]/30 w-20 h-20 rounded-full flex items-center justify-center mb-4">
+                               <svg class="w-10 h-10 text-[#3A5A40]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.085a2 2 0 00-1.736.97l-2.093 3.522A2 2 0 006.273 8H4a2 2 0 00-2 2v6a2 2 0 002 2h2.273a2 2 0 001.736-.97l2.093-3.522A2 2 0 0112.017 10H14z"></path></svg>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2">Salud Digestiva Óptima</h3>
+                            <p class="text-gray-600">Ingredientes frescos y sin procesar que maximizan la absorción de nutrientes y promueven una flora intestinal saludable.</p>
+                        </div>
+                        <div class="feature-item">
+                             <div class="mx-auto bg-[#A3B18A]/30 w-20 h-20 rounded-full flex items-center justify-center mb-4">
+                                <svg class="w-10 h-10 text-[#3A5A40]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2">Energía y Vitalidad</h3>
+                            <p class="text-gray-600">Proteínas y grasas de alta calidad que proveen energía sostenida para un estilo de vida activo y lleno de vitalidad.</p>
+                        </div>
+                        <div class="feature-item">
+                            <div class="mx-auto bg-[#A3B18A]/30 w-20 h-20 rounded-full flex items-center justify-center mb-4">
+                                <svg class="w-10 h-10 text-[#3A5A40]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2">Sistema Inmune Fuerte</h3>
+                            <p class="text-gray-600">Vitaminas y minerales de fuentes naturales (órganos y vegetales) que fortalecen las defensas del organismo.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Sección de Fórmulas Interactivas -->
+            <section id="recipes" class="py-20 bg-gray-50">
+                <div class="container mx-auto px-6">
+                    <div class="text-center mb-12">
+                        <h2 class="text-3xl lg:text-4xl font-bold text-[#3A5A40]">Nuestras Fórmulas: Transparencia y Calidad</h2>
+                        <p class="mt-2 text-gray-600 max-w-2xl mx-auto">Seleccione una receta para explorar su composición detallada, el propósito de cada ingrediente y su análisis nutricional garantizado.</p>
+                    </div>
+                    
+                    <!-- Botones de selección de receta -->
+                    <div class="flex justify-center space-x-2 md:space-x-4 mb-10">
+                        <button class="recipe-btn active font-semibold px-4 py-2 md:px-6 md:py-3 rounded-full" data-recipe="pollo">Fórmula de Pollo</button>
+                        <button class="recipe-btn font-semibold px-4 py-2 md:px-6 md:py-3 rounded-full" data-recipe="res">Fórmula de Res</button>
+                        <button class="recipe-btn font-semibold px-4 py-2 md:px-6 md:py-3 rounded-full" data-recipe="cordero">Fórmula de Cordero</button>
+                    </div>
+
+                    <!-- Contenedor de contenido dinámico -->
+                    <div id="recipe-content" class="bg-white p-8 rounded-lg shadow-xl max-w-5xl mx-auto">
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                            <!-- Columna Izquierda: Gráfico y Análisis -->
+                            <div>
+                                <h3 id="recipe-title" class="text-2xl font-bold text-[#3A5A40] mb-4">Fórmula Completa de Pollo</h3>
+                                <div class="w-full max-w-sm mx-auto">
+                                    <canvas id="recipeChart"></canvas>
+                                </div>
+                                <div class="mt-6 text-center">
+                                    <h4 class="font-bold text-lg">Análisis Garantizado</h4>
+                                    <p id="recipe-analysis" class="text-gray-600 text-sm">Proteína cruda (min): 15%, Grasa cruda (min): 10%, Fibra cruda (max): 2%, Humedad (max): 70%.</p>
+                                </div>
+                            </div>
+                            <!-- Columna Derecha: Ingredientes y Propósito -->
+                            <div>
+                                <h4 class="font-bold text-lg mb-3">Composición Detallada</h4>
+                                <div id="recipe-ingredients" class="space-y-3">
+                                    <!-- Ingredientes se cargarán aquí con JS -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+             <!-- Sección "La Dosis Perfecta" -->
+            <section class="py-20 bg-white">
+                <div class="container mx-auto px-6 text-center">
+                    <h2 class="text-3xl lg:text-4xl font-bold text-[#3A5A40]">La Dosis Perfecta para Cada Perro</h2>
+                    <p class="text-lg text-gray-600 max-w-3xl mx-auto mt-4 mb-10">
+                        Entendemos que cada mascota es única. La ración diaria ideal no es universal; depende de factores cruciales como la edad, el peso y su nivel de actividad. Nuestro enfoque garantiza una nutrición personalizada y precisa.
+                    </p>
+                    <a href="calculadora.html" class="bg-[#588157] text-white font-bold py-3 px-8 rounded-full text-lg hover:bg-[#3A5A40] transition-colors duration-300 transform hover:scale-105 inline-block">
+                        Calcular la Ración Ideal &rarr;
+                    </a>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- Footer (Consistente) -->
+        <footer class="bg-[#3A5A40] text-white">
+            <div class="container mx-auto px-6 py-8 text-center">
+                <p>&copy; 2025 BARF Ecuador. Todos los derechos reservados.</p>
+                <p class="text-sm text-gray-300 mt-2">Un Prospecto de Inversión</p>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        // Lógica para el menú móvil
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Lógica para la sección de recetas interactivas
+        const recipeButtons = document.querySelectorAll('.recipe-btn');
+        const recipeTitle = document.getElementById('recipe-title');
+        const recipeAnalysis = document.getElementById('recipe-analysis');
+        const recipeIngredientsContainer = document.getElementById('recipe-ingredients');
+        const chartCanvas = document.getElementById('recipeChart');
+        let recipeChart;
+
+        const recipesData = {
+            pollo: {
+                title: 'Fórmula Completa de Pollo',
+                chartData: [60, 15, 10, 15],
+                analysis: 'Proteína cruda (min): 15%, Grasa cruda (min): 10%, Fibra cruda (max): 2%, Humedad (max): 70%',
+                ingredients: [
+                    { name: 'Hueso Carnoso de Pollo (60%)', purpose: 'Fuente principal de calcio y fósforo para huesos y dientes fuertes.' },
+                    { name: 'Carne Muscular de Pollo (15%)', purpose: 'Aporta proteína de alta calidad para el desarrollo muscular y energía.' },
+                    { name: 'Órganos (Hígado, Corazón) (10%)', purpose: 'Concentrado de vitaminas A, B y minerales esenciales como hierro y zinc.' },
+                    { name: 'Mix de Vegetales y Frutas (15%)', purpose: 'Provee fibra, antioxidantes y fitonutrientes para el sistema inmune.' }
+                ]
+            },
+            res: {
+                title: 'Fórmula Completa de Res',
+                chartData: [55, 20, 10, 15],
+                analysis: 'Proteína cruda (min): 17%, Grasa cruda (min): 12%, Fibra cruda (max): 2%, Humedad (max): 68%',
+                ingredients: [
+                    { name: 'Hueso Carnoso de Res (55%)', purpose: 'Excelente fuente de calcio, fósforo y grasas saludables.' },
+                    { name: 'Carne Muscular de Res (20%)', purpose: 'Rica en hierro y proteína para una masa muscular magra y vitalidad.' },
+                    { name: 'Órganos (Hígado, Riñón) (10%)', purpose: 'Aporte denso de vitaminas del complejo B y minerales traza.' },
+                    { name: 'Mix de Vegetales y Frutas (15%)', purpose: 'Fibra para la digestión y un espectro de vitaminas y antioxidantes.' }
+                ]
+            },
+            cordero: {
+                title: 'Fórmula Hipoalergénica de Cordero',
+                chartData: [50, 25, 10, 15],
+                analysis: 'Proteína cruda (min): 16%, Grasa cruda (min): 14%, Fibra cruda (max): 2%, Humedad (max): 67%',
+                ingredients: [
+                    { name: 'Hueso Carnoso de Cordero (50%)', purpose: 'Ideal para perros sensibles, fuente de calcio y minerales esenciales.' },
+                    { name: 'Carne Muscular de Cordero (25%)', purpose: 'Proteína de alta digestibilidad, excelente para la piel y el pelaje.' },
+                    { name: 'Órganos (Hígado, Bazo) (10%)', purpose: 'Concentrado natural de nutrientes vitales para la función orgánica.' },
+                    { name: 'Mix de Vegetales y Frutas (15%)', purpose: 'Fuente de prebióticos y vitaminas para una salud integral.' }
+                ]
+            }
+        };
+
+        function updateRecipeView(recipeKey) {
+            const data = recipesData[recipeKey];
+
+            // Actualizar textos
+            recipeTitle.textContent = data.title;
+            recipeAnalysis.textContent = data.analysis;
+
+            // Actualizar lista de ingredientes
+            recipeIngredientsContainer.innerHTML = '';
+            data.ingredients.forEach(ing => {
+                const div = document.createElement('div');
+                div.className = 'p-3 bg-gray-50 rounded-md border border-gray-200';
+                div.innerHTML = `<p class="font-semibold">${ing.name}</p><p class="text-sm text-gray-600">${ing.purpose}</p>`;
+                recipeIngredientsContainer.appendChild(div);
+            });
+            
+            // Actualizar el gráfico
+            if (recipeChart) {
+                recipeChart.data.datasets[0].data = data.chartData;
+                recipeChart.update();
+            } else {
+                recipeChart = new Chart(chartCanvas, {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['Hueso Carnoso', 'Carne Muscular', 'Órganos', 'Vegetales/Frutas'],
+                        datasets: [{
+                            data: data.chartData,
+                            backgroundColor: ['#A3B18A', '#588157', '#3A5A40', '#8a9a7b'],
+                            borderColor: '#ffffff',
+                            borderWidth: 4
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        cutout: '70%',
+                        plugins: {
+                            legend: {
+                                position: 'bottom',
+                            },
+                            tooltip: {
+                                callbacks: {
+                                    label: function(context) {
+                                        let label = context.label || '';
+                                        if (label) {
+                                            label += ': ';
+                                        }
+                                        if (context.parsed !== null) {
+                                            label += context.parsed + '%';
+                                        }
+                                        return label;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+        }
+
+        recipeButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Gestionar estado activo del botón
+                recipeButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                
+                // Actualizar la vista
+                const recipeKey = button.getAttribute('data-recipe');
+                updateRecipeView(recipeKey);
+            });
+        });
+
+        // Carga inicial
+        updateRecipeView('pollo');
+    </script>
+</body>
+</html>
